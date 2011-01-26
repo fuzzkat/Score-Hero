@@ -36,32 +36,33 @@ class TC_Note < Test::Unit::TestCase
   end
   
   def test_off_stave_bottom
-    assert(!ExposedNote.new(55).ledger_line?()) #G3
-    assert( ExposedNote.new(57).ledger_line?()) #A3
-    assert(!ExposedNote.new(59).ledger_line?()) #B3
-    assert( ExposedNote.new(60).ledger_line?()) #C4
-    assert(!ExposedNote.new(62).ledger_line?()) #D4
-    assert(!ExposedNote.new(64).ledger_line?()) #E4
-    assert(!ExposedNote.new(66).ledger_line?()) #F4
+    assert_equal([-20,0], ExposedNote.new(55).ledger_lines(240,10)) #G3
+    assert_equal([-20,0], ExposedNote.new(57).ledger_lines(240,10)) #A3
+    assert_equal([0], ExposedNote.new(59).ledger_lines(240,10)) #B3
+    assert_equal([0], ExposedNote.new(60).ledger_lines(240,10)) #C4
+    assert_equal([], ExposedNote.new(62).ledger_lines(240,10)) #D4
+    assert_equal([], ExposedNote.new(64).ledger_lines(240,10)) #E4
+    assert_equal([], ExposedNote.new(66).ledger_lines(240,10)) #F4
   end
   
   def test_off_stave_top
-    assert(!ExposedNote.new(77).ledger_line?()) #F4
-    assert(!ExposedNote.new(79).ledger_line?()) #G4
-    assert( ExposedNote.new(81).ledger_line?()) #A4
-    assert(!ExposedNote.new(83).ledger_line?()) #B4
-    assert( ExposedNote.new(84).ledger_line?()) #C4
-    assert(!ExposedNote.new(86).ledger_line?()) #D4
-    assert( ExposedNote.new(88).ledger_line?()) #E4
+    assert_equal([], ExposedNote.new(77).ledger_lines(240,10)) #F4
+    assert_equal([], ExposedNote.new(79).ledger_lines(240,10)) #G4
+    assert_equal([120], ExposedNote.new(81).ledger_lines(240,10)) #A4
+    assert_equal([120], ExposedNote.new(83).ledger_lines(240,10)) #B4
+    assert_equal([120,140], ExposedNote.new(84).ledger_lines(240,10)) #C5
+    assert_equal([120,140], ExposedNote.new(86).ledger_lines(240,10)) #D5
+    assert_equal([120,140,160], ExposedNote.new(88).ledger_lines(240,10)) #E5
+    assert_equal([120,140,160], ExposedNote.new(89).ledger_lines(240,10)) #F5
   end
   
   class ExposedNote < Note
-    def get_relative_y_pos middle_c_y, line_height
-      super middle_c_y, line_height
+    def get_relative_y_pos middle_c_y, white_note_height
+      super middle_c_y, white_note_height
     end
     
-    def ledger_line?
-      super
+    def ledger_lines middle_c_y, white_note_height
+      super middle_c_y, white_note_height
     end
     
     def whitekey_index
