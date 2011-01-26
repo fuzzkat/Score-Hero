@@ -2,6 +2,7 @@ $: << File.expand_path(File.dirname(__FILE__) + "/../src")
 
 # Here are several ways you can use SDL.inited_system
 require 'note'
+require 'note_view'
 require 'stave'
 require 'sdl'
 require 'portmidi'
@@ -63,11 +64,11 @@ def render screen, stave, tune, display_offset
   screen.draw_rect(SCREEN_WIDTH/2-10,MIDDLE_C_POS+WHITE_NOTE_HEIGHT*2,20,WHITE_NOTE_HEIGHT*-16,[255,0,0])
   
   tune.each { |note, note_pos|
-    note.render(screen, note_pos - display_offset, MIDDLE_C_POS, WHITE_NOTE_HEIGHT)
+    NoteView.new(note).render(screen, note_pos - display_offset, MIDDLE_C_POS, WHITE_NOTE_HEIGHT)
   }
   
   @current_notes.each{ |note|
-    Note.new(note).render_keypress(screen, SCREEN_WIDTH/2, MIDDLE_C_POS, WHITE_NOTE_HEIGHT)
+    NoteView.new(Note.new(note)).render_keypress(screen, SCREEN_WIDTH/2, MIDDLE_C_POS, WHITE_NOTE_HEIGHT)
   }
       
   screen.flip
