@@ -30,9 +30,9 @@ class TC_Note < Test::Unit::TestCase
   end
   
   def test_get_relative_y_pos
-    assert_equal(0, @c4.get_relative_y_pos(0,10))
-    assert_equal(-10, @a3.get_relative_y_pos(0,5))
-    assert_equal(6, @fsharp4.get_relative_y_pos(0,2))
+    assert_equal(0, @c4.get_relative_y_pos(10))
+    assert_equal(-10, @a3.get_relative_y_pos(5))
+    assert_equal(6, @fsharp4.get_relative_y_pos(2))
   end
   
   def test_off_stave_bottom
@@ -57,8 +57,8 @@ class TC_Note < Test::Unit::TestCase
   end
   
   class ExposedNote < Note
-    def get_relative_y_pos middle_c_y, white_note_height
-      super middle_c_y, white_note_height
+    def get_relative_y_pos white_note_height
+      super white_note_height
     end
     
     def ledger_lines middle_c_y, white_note_height

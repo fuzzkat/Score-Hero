@@ -16,6 +16,8 @@ BORDER_SIZE = SCREEN_HEIGHT/20
 WHITE_NOTE_HEIGHT = SCREEN_HEIGHT/24
 MIDDLE_C_POS = SCREEN_HEIGHT/2+WHITE_NOTE_HEIGHT*6
 NOTES = ["C","C#/Db","D","D#/Eb","E","F","F#/Gb","G","G#/Ab","A","A#/Bb","B"]
+CROCHET_GAP = WHITE_NOTE_HEIGHT*6
+
 @speed = 50
 
 Portmidi.start
@@ -26,12 +28,12 @@ if !(subsystem_init & SDL::INIT_VIDEO)
   halt
 end
 
-Portmidi.input_devices.each do |dev|
-  puts "%d > %s" % [dev.device_id, dev.name]
-end
-puts "choose input device id"
-device_id = gets()
-#device_id = 3
+#Portmidi.input_devices.each do |dev|
+#  puts "%d > %s" % [dev.device_id, dev.name]
+#end
+#puts "choose input device id"
+#device_id = gets()
+device_id = 3
 
 midi_input = Portmidi::Input.new(device_id.to_i)
 
@@ -41,26 +43,26 @@ SDL::WM.set_caption "Score Hero", "Score Hero"
 screen.draw_rect 0, 0, SCREEN_WIDTH, BORDER_SIZE, [120,0,0], true  
 screen.draw_rect 0, SCREEN_HEIGHT-BORDER_SIZE, SCREEN_WIDTH, BORDER_SIZE, [120,0,0], true
 
-#notes = (0..40).collect{ |x|
+#tune = (0..40).collect{ |x|
 #  [Note.new(60+x),x*WHITE_NOTE_HEIGHT*6+SCREEN_WIDTH]
 #}
 
-notes = (0..100).collect { |x|
-  note_val = 60+rand(25)
-  [Note.new(note_val),x*WHITE_NOTE_HEIGHT*6+SCREEN_WIDTH]
+tune = (0..100).collect { |x|
+  [Note.new(60+rand(25)),x*CROCHET_GAP+SCREEN_WIDTH]
 }
 pos = 0
 
-stave = Stave.new()
+stave = Stave.new(MIDDLE_C_POS, WHITE_NOTE_HEIGHT)
 
 @current_notes = []
 
-def render screen, stave, notes, display_offset
+def render screen, stave, tune, display_offset
   screen.draw_rect 0, BORDER_SIZE, SCREEN_WIDTH, SCREEN_HEIGHT-BORDER_SIZE*2, [255,255,255], true
   
-  stave.render screen, MIDDLE_C_POS, WHITE_NOTE_HEIGHT
+  stave.render screen, SCREEN_WIDTH
+  screen.draw_rect(SCREEN_WIDTH/2-10,MIDDLE_C_POS+WHITE_NOTE_HEIGHT*2,20,WHITE_NOTE_HEIGHT*-16,[255,0,0])
   
-  notes.each { |note, note_pos|
+  tune.each { |note, note_pos|
     note.render(screen, note_pos - display_offset, MIDDLE_C_POS, WHITE_NOTE_HEIGHT)
   }
   
@@ -114,7 +116,7 @@ while true
       end
     }
   end
-  render screen, stave, notes, pos
+  render screen, stave, tune, pos
   if log.info?
     fps += 1
     if Time.new.to_f >= frame_timer.to_f + Time.at(1).to_f
