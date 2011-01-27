@@ -29,4 +29,10 @@ class TC_Note < Test::Unit::TestCase
     assert_equal(3, @fsharp4.whitekey_index())
   end
   
+  def test_midi_pitch
+    assert_equal(60, @c4.midi_pitch())
+    assert_equal(57, @a3.midi_pitch())
+    assert_equal(66, @fsharp4.midi_pitch())
+  end
+  
 end

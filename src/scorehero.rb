@@ -3,6 +3,7 @@ $: << File.expand_path(File.dirname(__FILE__) + "/../src")
 # Here are several ways you can use SDL.inited_system
 require 'note'
 require 'note_view'
+require 'keypress_view'
 require 'stave'
 require 'sdl'
 require 'portmidi'
@@ -19,7 +20,7 @@ MIDDLE_C_POS = SCREEN_HEIGHT/2+WHITE_NOTE_HEIGHT*6
 NOTES = ["C","C#/Db","D","D#/Eb","E","F","F#/Gb","G","G#/Ab","A","A#/Bb","B"]
 CROCHET_GAP = WHITE_NOTE_HEIGHT*6
 
-@speed = 50
+@speed = 100
 
 Portmidi.start
 
@@ -55,7 +56,7 @@ pos = 0
 
 stave = Stave.new(MIDDLE_C_POS, WHITE_NOTE_HEIGHT)
 
-@current_notes = []
+@pressed_keys = []
 
 def render screen, stave, tune, display_offset
   screen.draw_rect 0, BORDER_SIZE, SCREEN_WIDTH, SCREEN_HEIGHT-BORDER_SIZE*2, [255,255,255], true
@@ -67,8 +68,8 @@ def render screen, stave, tune, display_offset
     NoteView.new(note).render(screen, note_pos - display_offset, MIDDLE_C_POS, WHITE_NOTE_HEIGHT)
   }
   
-  @current_notes.each{ |note|
-    NoteView.new(Note.new(note)).render_keypress(screen, SCREEN_WIDTH/2, MIDDLE_C_POS, WHITE_NOTE_HEIGHT)
+  @pressed_keys.each{ |midi_note|
+    KeypressView.render(midi_note, screen, SCREEN_WIDTH/2, MIDDLE_C_POS, WHITE_NOTE_HEIGHT)
   }
       
   screen.flip
@@ -110,10 +111,10 @@ while true
     midi_events.each{|e|
       note = e[:message][1].to_i
       if e[:message][2] > 0
-        @current_notes << note
+        @pressed_keys << note
         log.info(note)
       else
-        @current_notes = @current_notes - [note] 
+        @pressed_keys = @pressed_keys - [note] 
       end
     }
   end

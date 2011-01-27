@@ -22,7 +22,7 @@ class Note
     Note.name_of @note
   end
 
-  def midi
+  def midi_pitch
     @note
   end
   
