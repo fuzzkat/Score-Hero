@@ -4,7 +4,7 @@ $: << File.expand_path(File.dirname(__FILE__) + "/../src")
 require 'note'
 require 'note_view'
 require 'keypress_view'
-require 'stave'
+require 'stave_view'
 require 'sdl'
 require 'portmidi'
 require 'logger'
@@ -54,7 +54,7 @@ tune = (0..100).collect { |x|
 }
 pos = 0
 
-stave = Stave.new(MIDDLE_C_POS, WHITE_NOTE_HEIGHT)
+stave = StaveView.new(MIDDLE_C_POS, WHITE_NOTE_HEIGHT)
 
 @pressed_keys = []
 

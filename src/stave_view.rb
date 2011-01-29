@@ -1,4 +1,4 @@
-class Stave
+class StaveView
 
   def initialize middle_c_pos, note_height
     @note_height = note_height
