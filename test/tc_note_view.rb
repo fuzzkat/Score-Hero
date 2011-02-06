@@ -4,6 +4,7 @@ $: << File.expand_path(File.dirname(__FILE__))
 require 'test/unit'
 require 'note_view'
 require 'note'
+require 'controller'
 require 'mock_screen'
 
 class TC_NoteView < Test::Unit::TestCase
@@ -11,9 +12,10 @@ class TC_NoteView < Test::Unit::TestCase
   BLACK = [0,0,0]
 
   def setup
-    @c4 = NoteView.new(Note.new(60))
-    @a3 = NoteView.new(Note.new(57))
-    @fsharp4 = NoteView.new(Note.new(66))
+    @controller = Controller.new
+    @c4 = NoteView.new(Note.new(60), Controller.new)
+    @a3 = NoteView.new(Note.new(57), Controller.new)
+    @fsharp4 = NoteView.new(Note.new(66), Controller.new)
   end
 
   def test_get_relative_y_pos
@@ -23,28 +25,28 @@ class TC_NoteView < Test::Unit::TestCase
   end
 
   def test_off_stave_bottom
-    assert_equal([-20,0], NoteView.new(Note.new(55)).ledger_lines(240,10)) #G3
-    assert_equal([-20,0], NoteView.new(Note.new(57)).ledger_lines(240,10)) #A3
-    assert_equal([0], NoteView.new(Note.new(59)).ledger_lines(240,10)) #B3
-    assert_equal([0], NoteView.new(Note.new(60)).ledger_lines(240,10)) #C4
-    assert_equal([], NoteView.new(Note.new(62)).ledger_lines(240,10)) #D4
-    assert_equal([], NoteView.new(Note.new(64)).ledger_lines(240,10)) #E4
-    assert_equal([], NoteView.new(Note.new(66)).ledger_lines(240,10)) #F4
+    assert_equal([-20,0], NoteView.new(Note.new(55), @controller).ledger_lines(240,10)) #G3
+    assert_equal([-20,0], NoteView.new(Note.new(57), @controller).ledger_lines(240,10)) #A3
+    assert_equal([0], NoteView.new(Note.new(59), @controller).ledger_lines(240,10)) #B3
+    assert_equal([0], NoteView.new(Note.new(60), @controller).ledger_lines(240,10)) #C4
+    assert_equal([], NoteView.new(Note.new(62), @controller).ledger_lines(240,10)) #D4
+    assert_equal([], NoteView.new(Note.new(64), @controller).ledger_lines(240,10)) #E4
+    assert_equal([], NoteView.new(Note.new(66), @controller).ledger_lines(240,10)) #F4
   end
 
   def test_off_stave_top
-    assert_equal([], NoteView.new(Note.new(77)).ledger_lines(240,10)) #F4
-    assert_equal([], NoteView.new(Note.new(79)).ledger_lines(240,10)) #G4
-    assert_equal([120], NoteView.new(Note.new(81)).ledger_lines(240,10)) #A4
-    assert_equal([120], NoteView.new(Note.new(83)).ledger_lines(240,10)) #B4
-    assert_equal([120,140], NoteView.new(Note.new(84)).ledger_lines(240,10)) #C5
-    assert_equal([120,140], NoteView.new(Note.new(86)).ledger_lines(240,10)) #D5
-    assert_equal([120,140,160], NoteView.new(Note.new(88)).ledger_lines(240,10)) #E5
-    assert_equal([120,140,160], NoteView.new(Note.new(89)).ledger_lines(240,10)) #F5
+    assert_equal([], NoteView.new(Note.new(77), @controller).ledger_lines(240,10)) #F4
+    assert_equal([], NoteView.new(Note.new(79), @controller).ledger_lines(240,10)) #G4
+    assert_equal([120], NoteView.new(Note.new(81), @controller).ledger_lines(240,10)) #A4
+    assert_equal([120], NoteView.new(Note.new(83), @controller).ledger_lines(240,10)) #B4
+    assert_equal([120,140], NoteView.new(Note.new(84), @controller).ledger_lines(240,10)) #C5
+    assert_equal([120,140], NoteView.new(Note.new(86), @controller).ledger_lines(240,10)) #D5
+    assert_equal([120,140,160], NoteView.new(Note.new(88), @controller).ledger_lines(240,10)) #E5
+    assert_equal([120,140,160], NoteView.new(Note.new(89), @controller).ledger_lines(240,10)) #F5
   end
 
   def test_render_ascending_crotchet
-    unit = NoteView.new(Note.new(60))
+    unit = NoteView.new(Note.new(60), @controller)
     middle_c_y = 100
     white_note_height = 20
     x = 40
@@ -59,7 +61,7 @@ class TC_NoteView < Test::Unit::TestCase
   end
 
   def test_render_decending_crotchet
-    unit = NoteView.new(Note.new(72))
+    unit = NoteView.new(Note.new(72), @controller)
     middle_c_y = 100
     white_note_height = 20
     x = 40

@@ -3,6 +3,7 @@ class MockScreen
     @ellipses = []
     @rects = []
     @lines = []
+    @flip = false
   end
 
   def draw_ellipse x,y,rx,ry,color, fill=false, aa=false, alpha=nil
@@ -27,5 +28,13 @@ class MockScreen
 
   def lines
     @lines
+  end
+  
+  def flip
+    @flip = true
+  end
+  
+  def flipped?
+    @flip
   end
 end

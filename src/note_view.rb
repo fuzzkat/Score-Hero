@@ -1,9 +1,7 @@
 require 'note'
+require 'view'
 
-class NoteView
-  def initialize note
-    @note = note
-  end
+class NoteView < View
 
   def render screen, x, middle_c_y, white_note_height
     y = middle_c_y - get_relative_y_pos(white_note_height)
@@ -13,7 +11,7 @@ class NoteView
     draw_width = xradius*0.08
     color = [0,0,0]
     screen.draw_ellipse(x, y, xradius, yradius, color, true, true)
-    if(@note.midi_pitch < 71)
+    if(@model.midi_pitch < 71)
       screen.draw_rect(x+xradius, y, -draw_width, yradius*-7, color, true)
     else
       screen.draw_rect(x-xradius, y, draw_width, yradius*7, color, true)
@@ -26,7 +24,7 @@ class NoteView
   end
 
   def get_relative_y_pos white_note_height
-    NoteView.get_relative_y_pos_of(@note.midi_pitch,white_note_height)
+    NoteView.get_relative_y_pos_of(@model.midi_pitch,white_note_height)
   end
 
   def NoteView.get_relative_y_pos_of note, white_note_height
@@ -35,8 +33,8 @@ class NoteView
 
   def ledger_lines middle_c_y, white_note_height
     lines = []
-    if(@note.midi_pitch < 62)
-      (@note.midi_pitch..62).each do |note|
+    if(@model.midi_pitch < 62)
+      (@model.midi_pitch..62).each do |note|
         if((Note.octave_of(note).modulo(2) == 0 && Note.whitekey_index_of(note).modulo(2) == 0) ||
         (Note.octave_of(note).modulo(2) == 1 && Note.whitekey_index_of(note).modulo(2) == 1))
           lines << NoteView.get_relative_y_pos_of(note, white_note_height)
@@ -44,8 +42,8 @@ class NoteView
       end
     end
 
-    if(@note.midi_pitch > 80)
-      (80..@note.midi_pitch).each do |note|
+    if(@model.midi_pitch > 80)
+      (80..@model.midi_pitch).each do |note|
         if((Note.octave_of(note).modulo(2) == 0 && Note.whitekey_index_of(note).modulo(2) == 0) ||
         (Note.octave_of(note).modulo(2) == 1 && Note.whitekey_index_of(note).modulo(2) == 1))
           lines << NoteView.get_relative_y_pos_of(note, white_note_height)
