@@ -1,4 +1,5 @@
 require 'view'
+require 'note'
 
 class StaveView < View
   attr_accessor :middle_c_pos, :white_note_height
@@ -17,4 +18,30 @@ class StaveView < View
     @white_note_height =  @h / 30
   end
 
+  def get_relative_y_pos_of note
+    ((Note.octave_of(note)-4)*7 + Note.whitekey_index_of(note)) * white_note_height
+  end
+  
+  def ledger_lines note
+    lines = []
+    if(note.midi_pitch < 62)
+      (note.midi_pitch..62).each do |note_pitch|
+        if((Note.octave_of(note_pitch).modulo(2) == 0 && Note.whitekey_index_of(note_pitch).modulo(2) == 0) ||
+        (Note.octave_of(note_pitch).modulo(2) == 1 && Note.whitekey_index_of(note_pitch).modulo(2) == 1))
+          lines << get_relative_y_pos_of(note_pitch)
+        end
+      end
+    end
+
+    if(note.midi_pitch > 80)
+      (80..note.midi_pitch).each do |note_pitch|
+        if((Note.octave_of(note_pitch).modulo(2) == 0 && Note.whitekey_index_of(note_pitch).modulo(2) == 0) ||
+        (Note.octave_of(note_pitch).modulo(2) == 1 && Note.whitekey_index_of(note_pitch).modulo(2) == 1))
+          lines << get_relative_y_pos_of(note_pitch)
+        end
+      end
+    end
+    lines.uniq()
+  end
+  
 end

@@ -22,15 +22,8 @@ class AppView < View
   
   def render screen
     render_background screen
-
-    super
-    
     render_cursor screen
-
-#    pressed_keys.each{ |midi_note|
-#      @key_press_view.render(midi_note, screen, @w/2, @middle_c_pos, @white_note_height)
-#    }
-
+    super
     screen.flip
   end
 

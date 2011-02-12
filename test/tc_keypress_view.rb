@@ -22,11 +22,15 @@ class TC_KeypressView < Test::Unit::TestCase
     
     assert_equal 2, screen.ellipses().size()
 
-    assert_equal([300,100,6.75,5,[0,100,0],true,true,nil], screen.ellipses()[0])
-    assert_equal([300,90,6.75,5,[0,100,0],true,true,nil], screen.ellipses()[1])
+    assert_equal([300,40,6.75,5,[0,100,0],true,true,nil], screen.ellipses()[0])
+    assert_equal([300,36,6.75,5,[0,100,0],true,true,nil], screen.ellipses()[1])
   end
 
   class MockSuperView
     attr_accessor :middle_c_pos, :white_note_height, :screen_width
+    
+    def get_relative_y_pos_of(note)
+      return note
+    end
   end
 end

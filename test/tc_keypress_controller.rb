@@ -2,7 +2,6 @@ $: << File.expand_path(File.dirname(__FILE__) + "/../src")
 $: << File.expand_path(File.dirname(__FILE__))
 require 'test/unit'
 require 'keypress_controller'
-require 'mock_screen'
 
 class TC_KeypressController < Test::Unit::TestCase
   def test_open

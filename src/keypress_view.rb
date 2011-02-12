@@ -11,7 +11,7 @@ class KeypressView < View
   def render screen
     @@log.debug("rendering keypresses: #{@model.object_id}")
     @model.each do |note|
-      y = super_view.middle_c_pos - NoteView.get_relative_y_pos_of(note, super_view.white_note_height)
+      y = super_view.middle_c_pos - super_view.get_relative_y_pos_of(note)
   
       yradius = super_view.white_note_height
       xradius = yradius*1.35
