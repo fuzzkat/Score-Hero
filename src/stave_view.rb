@@ -8,6 +8,9 @@ class StaveView < View
       line_y = middle_c_pos - (line+1) * white_note_height * 2
       screen.draw_line @x,line_y,@w,line_y,0
     end
+    
+    screen.draw_rect(@w/2-10,@middle_c_pos,20,@white_note_height*-12,[255,0,0])
+
     super
   end
 

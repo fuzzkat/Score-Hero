@@ -22,13 +22,8 @@ class AppView < View
   
   def render screen
     render_background screen
-    render_cursor screen
     super
     screen.flip
-  end
-
-  def render_cursor screen
-    screen.draw_rect(@w/2-10,@middle_c_pos+@white_note_height*2,20,@white_note_height*-16,[255,0,0])
   end
 
   def render_background screen

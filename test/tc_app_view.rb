@@ -10,7 +10,6 @@ class TC_AppView < Test::Unit::TestCase
   WHITE = [255,255,255]
   DARK_RED = [120,0,0]
   PRESSED_KEYS = [60,65,72]
-  RED = [255,0,0]
   
   def test_render
     screen = MockScreen.new
@@ -26,9 +25,6 @@ class TC_AppView < Test::Unit::TestCase
     assert_equal([0,0,640,24,DARK_RED,true,nil], screen.rects[0])
     assert_equal([0,456,640,24,DARK_RED,true,nil], screen.rects[1])
     assert_equal([0,24,640,432,WHITE,true,nil], screen.rects[2])
-    
-    cursor_rect = screen.rects[3]
-    assert_equal([310,400,20,-320,RED,false,nil], cursor_rect)
     
     assert(sub_view.rendered?)
     

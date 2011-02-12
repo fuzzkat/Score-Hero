@@ -7,6 +7,8 @@ require 'controller'
 require 'mock_screen'
 
 class TC_StaveView < Test::Unit::TestCase
+  RED = [255,0,0]
+  
   def test_render
     screen = MockScreen.new
 
@@ -20,6 +22,8 @@ class TC_StaveView < Test::Unit::TestCase
     assert_equal([0,45,600,45,0], screen.lines[2])
     assert_equal([0,35,600,35,0], screen.lines[3])
     assert_equal([0,25,600,25,0], screen.lines[4])
+    
+    assert_equal([290,75,20,-60,RED,false,nil], screen.rects[0])
   end
 
   def test_get_relative_y_pos_of
