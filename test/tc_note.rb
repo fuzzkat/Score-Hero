@@ -1,6 +1,5 @@
-$: << File.expand_path(File.dirname(__FILE__) + "/../src")
+require File.expand_path(File.dirname(__FILE__) + '/test_helper')
 
-require 'test/unit'
 require 'note'
 
 class TC_Note < Test::Unit::TestCase

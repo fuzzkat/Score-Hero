@@ -5,6 +5,8 @@ require 'note'
 class TuneView < View
   attr_writer :note_view
   
+  CROTCHET_WIDTH = 40
+  
   def initialize model, controller
     super
     @note_view = NoteView    
@@ -19,7 +21,7 @@ class TuneView < View
 
   def render screen
     @sub_views.each_with_index do |sub_view, index| 
-      sub_view.render(screen, @w/2 + (index-@controller.pos)*40)
+      sub_view.render(screen, @w/2 + (index-@controller.pos) * CROTCHET_WIDTH)
     end
   end
   

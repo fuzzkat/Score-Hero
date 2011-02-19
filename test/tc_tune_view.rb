@@ -1,7 +1,5 @@
-$: << File.expand_path(File.dirname(__FILE__) + "/../src")
-$: << File.expand_path(File.dirname(__FILE__))
+require File.expand_path(File.dirname(__FILE__) + '/test_helper')
 
-require 'test/unit'
 require 'tune_view'
 require 'controller'
 require 'tune_controller'

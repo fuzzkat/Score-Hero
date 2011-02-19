@@ -1,6 +1,5 @@
-$: << File.expand_path(File.dirname(__FILE__) + "/../src")
-$: << File.expand_path(File.dirname(__FILE__))
-require 'test/unit'
+require File.expand_path(File.dirname(__FILE__) + '/test_helper')
+
 require 'keypress_view'
 require 'keypress_controller'
 require 'mock_screen'

@@ -1,4 +1,7 @@
 $: << File.expand_path(File.dirname(__FILE__) + "/../src")
+$: << File.expand_path(File.dirname(__FILE__) + "/../src/models")
+$: << File.expand_path(File.dirname(__FILE__) + "/../src/views")
+$: << File.expand_path(File.dirname(__FILE__) + "/../src/controllers")
 
 # Here are several ways you can use SDL.inited_system
 require 'app_view'
@@ -20,7 +23,7 @@ log = AppLogger.get_logger()
 
 screen_width = 800
 screen_height = 300
-tempo = 80
+tempo = 60
 
 Portmidi.start
 
