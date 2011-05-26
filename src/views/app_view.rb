@@ -15,6 +15,10 @@ class AppView < View
     @white_note_height = @h/24
     @middle_c_pos = @h/2+@white_note_height*6
     
+    set_draw_area_of_sub_views
+  end
+  
+  def set_draw_area_of_sub_views
     sub_views().each do |sub_view|
       sub_view.set_draw_area(0, @border_size, @w, @h)
     end

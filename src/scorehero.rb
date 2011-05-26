@@ -23,7 +23,7 @@ log = AppLogger.get_logger()
 
 screen_width = 800
 screen_height = 300
-tempo = 60
+tempo = 40
 
 Portmidi.start
 
@@ -33,12 +33,24 @@ if !(subsystem_init & SDL::INIT_VIDEO)
   halt
 end
 
-#Portmidi.input_devices.each do |dev|
-#  puts "%d > %s" % [dev.device_id, dev.name]
-#end
-#puts "choose input device id"
-#device_id = gets()
 device_id = 3
+found = false
+
+Portmidi.input_devices.each do |dev|
+  if dev.device_id == device_id
+    selected = "<-- Selected"
+    found = true
+  else
+    selected = ""
+  end
+   
+  puts "%d > %s %s" % [dev.device_id, dev.name, selected]
+end
+
+if !found
+  puts "choose input device id"
+  device_id = gets()
+end
 
 midi_input = Portmidi::Input.new(device_id.to_i)
 
