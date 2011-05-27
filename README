@@ -1,0 +1,35 @@
+Score Hero
+
+Copyright (C) 2011  Kat Crichton-Seager
+
+Score Hero is a musical score sight-reading game that hopes to help you learn to sight read and play music on a midi keyboard.
+
+Score Hero is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Score Hero is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Score Hero.  If not, see <http://www.gnu.org/licenses/>.
+
+***************
+* How To Play *
+***************
+Play a midi keyboard in time to the musical notes passing by on the screen.
+
+***************
+* Development *
+***************
+This software is in the very early stages of development, so please feel free to contribute or comment on features you would like to see.
+
+The codebase is written using Test Driven Development (TDD) and is refactored using the principles found in Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin).
+
+I hope you enjoy this software,
+
+Kat Crichton-Seager
+
