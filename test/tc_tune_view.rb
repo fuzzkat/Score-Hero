@@ -15,16 +15,11 @@ class TC_TuneView < Test::Unit::TestCase
     unit = TuneView.new(@tune_model, TuneController.new(nil))
     unit.note_view = NoteViewWrapper
     unit.super_view = "Stave View"
-    unit.add_sub_view()
+    unit.add_notes_as_sub_views
 
     sub_views = unit.sub_views()
 
     assert_equal(4, sub_views.size)
-
-    assert_equal("Stave View", sub_views[0].stave_view)
-    assert_equal("Stave View", sub_views[1].stave_view)
-    assert_equal("Stave View", sub_views[2].stave_view)
-    assert_equal("Stave View", sub_views[3].stave_view)
 
     assert_equal(60, sub_views[0].model.midi_pitch)
     assert_equal(68, sub_views[1].model.midi_pitch)
@@ -38,7 +33,7 @@ class TC_TuneView < Test::Unit::TestCase
     
     unit = TuneView.new(@tune_model, tune_controller)
     unit.note_view = NoteViewWrapper
-    unit.add_sub_view()
+    unit.add_notes_as_sub_views
     unit.set_draw_area(0,0,640,200)
     assert_equal 4, unit.sub_views().size
     

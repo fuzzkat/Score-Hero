@@ -6,9 +6,8 @@ class NoteView < View
   COLOUR = [0,0,0]
   MIDDLE_LINE_OF_STAVE = 71
 
-  def initialize model, controller, stave_view
+  def initialize model, controller
     super model, controller
-    @stave_view = stave_view
   end
 
   def render screen, x
@@ -22,6 +21,7 @@ class NoteView < View
   private
   
   def draw_note()
+    @stave_view = super_view.super_view #TODO: Fix feature envy
     @y = @stave_view.middle_c_pos - @stave_view.get_relative_y_pos_of(@model.midi_pitch)
 
     @yradius = @stave_view.white_note_height

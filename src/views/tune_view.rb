@@ -13,10 +13,10 @@ class TuneView < View
   end
   
   
-  def add_sub_view
+  def add_notes_as_sub_views
     @model.each do | note |
-      note_sub_view = @note_view.new(note, Controller.new, super_view)
-      super(note_sub_view)
+      note_sub_view = @note_view.new(note, Controller.new)
+      add_sub_view(note_sub_view)
     end
   end
 

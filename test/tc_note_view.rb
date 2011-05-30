@@ -15,10 +15,14 @@ class TC_NoteView < Test::Unit::TestCase
     @stave_view = StaveView.new(nil,@controller)
     @stave_view.white_note_height = 20
     @stave_view.middle_c_pos = 100
+    
+    @tune_view = View.new(nil, Controller.new)
+    @tune_view.super_view = @stave_view
   end
 
   def test_render_ascending_crotchet
-    unit = NoteView.new(Note.new(60), @controller, @stave_view)
+    unit = NoteView.new(Note.new(60), @controller)
+    unit.super_view = @tune_view
     x = 40
     screen = MockScreen.new
 
@@ -31,7 +35,8 @@ class TC_NoteView < Test::Unit::TestCase
   end
 
   def test_render_decending_crotchet
-    unit = NoteView.new(Note.new(72), @controller, @stave_view)
+    unit = NoteView.new(Note.new(72), @controller)
+    unit.super_view = @tune_view
     x = 40
     screen = MockScreen.new
 
