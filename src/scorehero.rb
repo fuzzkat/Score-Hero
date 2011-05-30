@@ -7,15 +7,6 @@ $: << File.expand_path(File.dirname(__FILE__) + "/../src/controllers")
 require 'app_view'
 require 'app_controller'
 
-require 'stave_view'
-
-require 'keypress_model'
-require 'keypress_view'
-require 'keypress_controller'
-
-require 'tune_view'
-require 'tune_controller'
-
 require 'sdl'
 require 'portmidi'
 require 'logger'
@@ -72,7 +63,7 @@ event_thread = Thread.new {
 
 app_controller = AppController.new
 app_view = AppView.new(nil, app_controller)
-app_controller.setup(midi_input)
+app_controller.construct_mvc_map(midi_input)
 
 app_view.set_draw_area(0,0,screen_width,screen_height)
 
