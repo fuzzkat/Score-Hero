@@ -21,8 +21,10 @@ class TuneView < View
   end
 
   def render screen
-    @sub_views.each_with_index do |sub_view, index| 
-      sub_view.render(screen, @w/2 + (index-@controller.pos) * CROTCHET_WIDTH)
+    view_centre = @w/2
+    @sub_views.each_with_index do |sub_view, index|
+      note_pos = index-@controller.pos 
+      sub_view.render(screen, view_centre + note_pos*CROTCHET_WIDTH)
     end
   end
   

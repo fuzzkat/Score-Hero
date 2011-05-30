@@ -7,6 +7,8 @@ class AppView < View
   
   def initialize model, controller
     super(model, controller)
+    stave_view = StaveView.new(nil, Controller.new)
+    add_sub_view(stave_view)
   end
     
   def set_draw_area(x,y,w,h)

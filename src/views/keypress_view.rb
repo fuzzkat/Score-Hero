@@ -12,7 +12,7 @@ class KeypressView < View
     @@log.debug("rendering keypresses: #{@model.object_id}")
     
     @screen = screen
-    @model.each do |note|
+    @model.chord.each do |note|
       render_note note
     end
   end

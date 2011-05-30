@@ -9,6 +9,7 @@ require 'app_controller'
 
 require 'stave_view'
 
+require 'keypress_model'
 require 'keypress_view'
 require 'keypress_controller'
 
@@ -23,7 +24,6 @@ log = AppLogger.get_logger()
 
 screen_width = 800
 screen_height = 300
-tempo = 40
 
 Portmidi.start
 
@@ -57,15 +57,6 @@ midi_input = Portmidi::Input.new(device_id.to_i)
 screen = SDL::Screen.open(screen_width, screen_height, 0, SDL::HWSURFACE || SDL::DOUBLEBUF || SDL::RESIZABLE || SDL::ASYNCBLIT)
 SDL::WM.set_caption "Score Hero", "Score Hero"
 
-#tune = (0..40).collect{ |x|
-#  [Note.new(60+x),x]
-#}
-
-
-#pos = 0
-
-@pressed_keys = []
-
 event_thread = Thread.new {
   while true
     while event = SDL::Event.poll
@@ -80,22 +71,8 @@ event_thread = Thread.new {
 }
 
 app_controller = AppController.new
-
 app_view = AppView.new(nil, app_controller)
-
-stave_view = StaveView.new(nil, Controller.new)
-app_view.add_sub_view(stave_view)
-
-tune_model = (0..100).collect { |x| Note.new(60+rand(23)) }
-tune_controller = TuneController.new(tempo)
-tune_view = TuneView.new(tune_model, tune_controller)
-stave_view.add_sub_view(tune_view)
-tune_view.add_sub_view()
-
-keypress_model = []
-keypress_controller = KeypressController.new(midi_input)
-keypress_view = KeypressView.new(keypress_model, keypress_controller)
-stave_view.add_sub_view(keypress_view)
+app_controller.setup(midi_input)
 
 app_view.set_draw_area(0,0,screen_width,screen_height)
 
@@ -104,24 +81,7 @@ if log.info?
   frame_timer = Time.new
 end
 
-#anim_timer = Time.new
 while true
-#  time_pos = Time.new - anim_timer
-#  pos = time_pos * @tempo/60
-#  if pos > tune.size + 11
-#    anim_timer = Time.new
-#  end
-#  log.debug("Position: " + pos.to_s)
-  
   app_controller.open
   app_view.render screen
-  
-#  if log.info?
-#    fps += 1
-#    if Time.new.to_f >= frame_timer.to_f + Time.at(1).to_f
-#      log.info fps.to_s + " fps"
-#      fps = 0
-#      frame_timer = Time.new
-#    end
-#  end
 end

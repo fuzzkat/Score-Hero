@@ -1,36 +1,28 @@
 require File.expand_path(File.dirname(__FILE__) + '/test_helper')
 
-require 'keypress_model'
+require 'random_tune_model'
 
 class TC_KeypressModel < Test::Unit::TestCase
  
-  def setup
-   @keys = []
+  def test_contains_100_notes
+    unit = RandomTuneModel.new
+    
+    assert_equal(100, unit.length())
+      
+    unit.each do |note|
+      assert_equal Note, note.class
+    end
   end
   
-  def test_keypress_observer
-    unit = KeypressModel.new
-    unit.registerObserver(self)
+  def test_contains_only_notes_between_middle_c_and_high_c
+    middle_c = 60
+    high_c = 82
     
-    unit.press(32)
-    assert_equal(32,@last_key_pressed,"Observer should have been notified with key 32")
+    unit = RandomTuneModel.new
     
-    unit.press(29)
-    assert_equal(29,@last_key_pressed,"Observer should have been notified with key 29")
-  end
-
-  def test_keys_pressed_update_chord
-    unit = KeypressModel.new
-    
-    unit.press(12)
-    unit.press(16)
-    unit.press(32)
-    unit.release(16)
-    
-    assert_equal([12, 32], unit.chord())
-  end
-    
-  def notify(key)
-    @last_key_pressed = key
+    unit.each do |note|
+      assert note.midi_pitch >= middle_c
+      assert note.midi_pitch <= high_c
+    end
   end
 end

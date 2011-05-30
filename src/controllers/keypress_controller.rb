@@ -17,7 +17,7 @@ class KeypressController < Controller
   end
 
   private
-  
+
   def processMidiEvents
     midi_events = readBatchOfMidiEvents()
 
@@ -52,12 +52,12 @@ class KeypressController < Controller
   end
 
   def addToCurrentChord note
-    @model << note
+    @model.press note
     @@log.info{"note #{note} on"}
   end
 
   def removeFromCurrentChord note
-    @model.delete note
+    @model.release note
     @@log.info{"note #{note} off"}
   end
 

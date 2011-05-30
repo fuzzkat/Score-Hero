@@ -1,5 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/test_helper')
 
+require 'keypress_model'
 require 'keypress_view'
 require 'keypress_controller'
 require 'mock_screen'
@@ -7,7 +8,9 @@ require 'mock_screen'
 class TC_KeypressView < Test::Unit::TestCase
   def test_render
     screen = MockScreen.new
-    model = [60,64]
+    model = KeypressModel.new
+    model.press(60)
+    model.press(64)
     unit = KeypressView.new(model,KeypressController.new(3))
     super_view = MockSuperView.new
     super_view.middle_c_pos = 100

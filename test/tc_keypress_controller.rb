@@ -1,25 +1,26 @@
 require File.expand_path(File.dirname(__FILE__) + '/test_helper')
 
 require 'keypress_controller'
+require 'keypress_model'
 
 class TC_KeypressController < Test::Unit::TestCase
   def test_open
-    model = []
+    model = KeypressModel.new
     midi_input = MockMidiInput.new
     unit = KeypressController.new(midi_input)
     unit.model = model
     
     unit.open()
-    assert_equal([60,64,67], model)
+    assert_equal([60,64,67], model.chord)
     
     unit.open()
-    assert_equal([67, 72], model)
+    assert_equal([67, 72], model.chord)
     
     unit.open()
-    assert_equal([67], model)
+    assert_equal([67], model.chord)
     
     unit.open()
-    assert_equal([], model)
+    assert_equal([], model.chord)
   end
   
   class MockMidiInput
