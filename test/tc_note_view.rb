@@ -14,7 +14,6 @@ class TC_NoteView < Test::Unit::TestCase
     @controller = Controller.new
     @stave_view = StaveView.new(nil,@controller)
     @stave_view.white_note_height = 20
-    @stave_view.middle_c_pos = 100
     
     @tune_view = View.new(nil, Controller.new)
     @tune_view.super_view = @stave_view
@@ -24,9 +23,10 @@ class TC_NoteView < Test::Unit::TestCase
     unit = NoteView.new(Note.new(60), @controller)
     unit.super_view = @tune_view
     x = 40
+    y = 100
     screen = MockScreen.new
 
-    unit.render(screen,x)
+    unit.render(screen,x,y)
     assert_equal(1,screen.ellipses.size)
     assert_equal([40,100,27.0,20,BLACK,true,true,nil], screen.ellipses[0])
     assert_equal(2,screen.rects.size)
@@ -38,9 +38,10 @@ class TC_NoteView < Test::Unit::TestCase
     unit = NoteView.new(Note.new(72), @controller)
     unit.super_view = @tune_view
     x = 40
+    y = 100
     screen = MockScreen.new
 
-    unit.render(screen,x)
+    unit.render(screen,x, y)
     assert_equal(1,screen.ellipses.size)
     assert_equal([40,-40,27.0,20,BLACK,true,true,nil], screen.ellipses[0])
     assert_equal(1,screen.rects.size)

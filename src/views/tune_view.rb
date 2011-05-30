@@ -9,7 +9,7 @@ class TuneView < View
   
   def initialize model, controller
     super
-    @note_view = NoteView    
+    @note_view = NoteView
   end
   
   
@@ -23,8 +23,9 @@ class TuneView < View
   def render screen
     view_centre = @w/2
     @sub_views.each_with_index do |sub_view, index|
-      note_pos = index-@controller.pos 
-      sub_view.render(screen, view_centre + note_pos*CROTCHET_WIDTH)
+      note_pos = index-@controller.pos
+      note_x = view_centre + note_pos*CROTCHET_WIDTH
+      sub_view.render(screen, note_x, super_view().middle_c_pos)
     end
   end
   

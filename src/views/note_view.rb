@@ -10,9 +10,10 @@ class NoteView < View
     super model, controller
   end
 
-  def render screen, x
+  def render screen, x, y
     @screen = screen
     @x = x
+    @middle_c_pos = y
 
     draw_note()
     draw_ledger_lines()
@@ -22,7 +23,7 @@ class NoteView < View
   
   def draw_note()
     @stave_view = super_view.super_view #TODO: Fix feature envy
-    @y = @stave_view.middle_c_pos - @stave_view.get_relative_y_pos_of(@model.midi_pitch)
+    @y = @middle_c_pos - @stave_view.get_relative_y_pos_of(@model.midi_pitch)
 
     @yradius = @stave_view.white_note_height
     @xradius = @yradius*1.35
@@ -52,7 +53,7 @@ class NoteView < View
 
   def draw_ledger_lines
     @stave_view.ledger_lines(@model).each do |ledger_y|
-      y = @stave_view.middle_c_pos - ledger_y
+      y = @middle_c_pos - ledger_y
       draw_ledger_line(@x, y)
     end
   end
