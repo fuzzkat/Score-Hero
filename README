@@ -17,19 +17,6 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Score Hero.  If not, see <http://www.gnu.org/licenses/>.
 
-****************
-* Installation *
-****************
-install a 1.8.* version of ruby from http://ruby-lang.org/ or using your package manager in Linux
-install a 1.8.* version of rake to run the build
-install gem to install dependencies (portmidi and libsdl-ruby)
-
-On Ubuntu the following commands will install the relevant libs
-
-> sudo gem install portmidi ffi
-> sudo apt-get install libportmidi0 libportmidi-dev
-> sudo apt-get install libsdl-ruby
-
 ***************
 * How To Play *
 ***************
