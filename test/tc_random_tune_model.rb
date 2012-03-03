@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/test_helper')
 
 require 'random_tune_model'
 
-class TC_KeypressModel < Test::Unit::TestCase
+class TC_RandomTuneModel < Test::Unit::TestCase
  
   def test_contains_100_notes
     unit = RandomTuneModel.new
@@ -10,7 +10,7 @@ class TC_KeypressModel < Test::Unit::TestCase
     assert_equal(100, unit.length())
       
     unit.each do |note|
-      assert_equal Note, note.class
+      assert_equal NoteModel, note.class
     end
   end
   

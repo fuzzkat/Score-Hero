@@ -1,4 +1,4 @@
-class Note
+class NoteModel
   NOTES = [
     {:name => "C", :white_key_index => 0},
     {:name => "C#", :white_key_index => 0},
@@ -19,30 +19,30 @@ class Note
   end
 
   def name
-    Note.name_of @note
+    NoteModel.name_of @note
   end
 
   def midi_pitch
     @note
   end
   
-  def Note.name_of note
+  def NoteModel.name_of note
     NOTES[note%12][:name] + octave_of(note).to_s
   end
 
   def octave
-    Note.octave_of @note
+    NoteModel.octave_of @note
   end
 
-  def Note.octave_of note
+  def NoteModel.octave_of note
     (note/12-1).to_i
   end
 
   def whitekey_index
-    Note.whitekey_index_of @note
+    NoteModel.whitekey_index_of @note
   end
 
-  def Note.whitekey_index_of note
+  def NoteModel.whitekey_index_of note
     NOTES[note%12][:white_key_index]
   end
 

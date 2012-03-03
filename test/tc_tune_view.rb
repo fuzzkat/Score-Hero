@@ -42,7 +42,7 @@ class TC_TuneView < Test::Unit::TestCase
   end
 
   def construct_tune_view
-    tune_model = [Note.new(60),Note.new(68),Note.new(64),Note.new(52)]
+    tune_model = [NoteModel.new(60),NoteModel.new(68),NoteModel.new(64),NoteModel.new(52)]
     
     tune_controller = TuneController.new(nil)
     tune_controller.pos=5

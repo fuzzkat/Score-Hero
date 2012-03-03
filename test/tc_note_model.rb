@@ -1,13 +1,13 @@
 require File.expand_path(File.dirname(__FILE__) + '/test_helper')
 
-require 'note'
+require 'note_model'
 
-class TC_Note < Test::Unit::TestCase
+class TC_NoteModel < Test::Unit::TestCase
  
   def setup
-    @c4 = Note.new(60)
-    @a3 = Note.new(57)
-    @fsharp4 = Note.new(66)
+    @c4 = NoteModel.new(60)
+    @a3 = NoteModel.new(57)
+    @fsharp4 = NoteModel.new(66)
   end
   
   def test_name

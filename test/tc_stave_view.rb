@@ -40,27 +40,27 @@ class TC_StaveView < Test::Unit::TestCase
     unit = StaveView.new nil, Controller.new
     unit.set_draw_area(0,0,480,300)
         
-    assert_equal([-20,0], unit.ledger_lines(Note.new(55)) ) #G3
-    assert_equal([-20,0], unit.ledger_lines(Note.new(57)) ) #A3
-    assert_equal([0], unit.ledger_lines(Note.new(59)) ) #B3
-    assert_equal([0], unit.ledger_lines(Note.new(60)) ) #C4
-    assert_equal([], unit.ledger_lines(Note.new(62)) ) #D4
-    assert_equal([], unit.ledger_lines(Note.new(64)) ) #E4
-    assert_equal([], unit.ledger_lines(Note.new(66)) ) #F4
+    assert_equal([-20,0], unit.ledger_lines(NoteModel.new(55)) ) #G3
+    assert_equal([-20,0], unit.ledger_lines(NoteModel.new(57)) ) #A3
+    assert_equal([0], unit.ledger_lines(NoteModel.new(59)) ) #B3
+    assert_equal([0], unit.ledger_lines(NoteModel.new(60)) ) #C4
+    assert_equal([], unit.ledger_lines(NoteModel.new(62)) ) #D4
+    assert_equal([], unit.ledger_lines(NoteModel.new(64)) ) #E4
+    assert_equal([], unit.ledger_lines(NoteModel.new(66)) ) #F4
   end
 
   def test_leger_lines_off_stave_top
     unit = StaveView.new nil, Controller.new
     unit.set_draw_area(0,0,480,300)
     
-    assert_equal([], unit.ledger_lines(Note.new(77)) ) #F4
-    assert_equal([], unit.ledger_lines(Note.new(79)) ) #G4
-    assert_equal([120], unit.ledger_lines(Note.new(81)) ) #A4
-    assert_equal([120], unit.ledger_lines(Note.new(83)) ) #B4
-    assert_equal([120,140], unit.ledger_lines(Note.new(84)) ) #C5
-    assert_equal([120,140], unit.ledger_lines(Note.new(86)) ) #D5
-    assert_equal([120,140,160], unit.ledger_lines(Note.new(88)) ) #E5
-    assert_equal([120,140,160], unit.ledger_lines(Note.new(89)) ) #F5
+    assert_equal([], unit.ledger_lines(NoteModel.new(77)) ) #F4
+    assert_equal([], unit.ledger_lines(NoteModel.new(79)) ) #G4
+    assert_equal([120], unit.ledger_lines(NoteModel.new(81)) ) #A4
+    assert_equal([120], unit.ledger_lines(NoteModel.new(83)) ) #B4
+    assert_equal([120,140], unit.ledger_lines(NoteModel.new(84)) ) #C5
+    assert_equal([120,140], unit.ledger_lines(NoteModel.new(86)) ) #D5
+    assert_equal([120,140,160], unit.ledger_lines(NoteModel.new(88)) ) #E5
+    assert_equal([120,140,160], unit.ledger_lines(NoteModel.new(89)) ) #F5
   end
 
 end

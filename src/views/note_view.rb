@@ -1,4 +1,4 @@
-require 'note'
+require 'note_model'
 require 'view'
 
 class NoteView < View

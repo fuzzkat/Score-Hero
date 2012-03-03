@@ -1,6 +1,5 @@
 require 'view'
 require 'note_view'
-require 'note'
 
 class TuneView < View
   attr_writer :note_view

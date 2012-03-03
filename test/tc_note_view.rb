@@ -2,7 +2,6 @@ require File.expand_path(File.dirname(__FILE__) + '/test_helper')
 
 require 'note_view'
 require 'stave_view'
-require 'note'
 require 'controller'
 require 'mock_screen'
 
@@ -20,7 +19,7 @@ class TC_NoteView < Test::Unit::TestCase
   end
 
   def test_render_ascending_crotchet
-    unit = NoteView.new(Note.new(60), @controller)
+    unit = NoteView.new(NoteModel.new(60), @controller)
     unit.super_view = @tune_view
     x = 40
     y = 100
@@ -35,7 +34,7 @@ class TC_NoteView < Test::Unit::TestCase
   end
 
   def test_render_decending_crotchet
-    unit = NoteView.new(Note.new(72), @controller)
+    unit = NoteView.new(NoteModel.new(72), @controller)
     unit.super_view = @tune_view
     x = 40
     y = 100

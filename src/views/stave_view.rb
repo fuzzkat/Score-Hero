@@ -1,5 +1,5 @@
 require 'view'
-require 'note'
+require 'note_model'
 
 class StaveView < View
   attr_accessor :middle_c_pos, :white_note_height
@@ -23,7 +23,7 @@ class StaveView < View
   end
 
   def get_relative_y_pos_of note
-    ((Note.octave_of(note)-4)*7 + Note.whitekey_index_of(note)) * white_note_height
+    ((NoteModel.octave_of(note)-4)*7 + NoteModel.whitekey_index_of(note)) * white_note_height
   end
   
   def ledger_lines note
@@ -42,8 +42,8 @@ class StaveView < View
   end
   
   def should_draw_ledger_line_for(note_pitch)
-    (Note.octave_of(note_pitch).modulo(2) == 0 && Note.whitekey_index_of(note_pitch).modulo(2) == 0) ||
-    (Note.octave_of(note_pitch).modulo(2) == 1 && Note.whitekey_index_of(note_pitch).modulo(2) == 1)
+    (NoteModel.octave_of(note_pitch).modulo(2) == 0 && NoteModel.whitekey_index_of(note_pitch).modulo(2) == 0) ||
+    (NoteModel.octave_of(note_pitch).modulo(2) == 1 && NoteModel.whitekey_index_of(note_pitch).modulo(2) == 1)
   end
   
 end
