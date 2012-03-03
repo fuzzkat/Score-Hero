@@ -35,6 +35,17 @@ On Ubuntu the following commands will install the relevant libs
 ***************
 Play a midi keyboard in time to the musical notes passing by on the screen.
 
+****************
+* Installation *
+****************
+On Ubuntu, the following commands will get you going:
+
+sudo apt-get install ruby rake rubygems libsdl-ruby libportmidi0 libportmidi-dev
+gem install rubysdl portmidi ffi
+
+then run scorehero:
+./scorehero
+
 ***************
 * Development *
 ***************
