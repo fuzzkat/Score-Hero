@@ -10,136 +10,141 @@
 <title>scorehero</title>
 <polygon fill="white" stroke="white" points="-4,5 -4,-428 913,-428 913,5 -4,5"/>
 <g id="graph8" class="cluster"><title>clusterAppTriad</title>
-<polygon fill="none" stroke="black" points="189,-230 189,-358 363,-358 363,-230 189,-230"/>
+<polygon fill="none" stroke="black" points="44,-230 44,-358 218,-358 218,-230 44,-230"/>
 </g>
 <g id="graph10" class="cluster"><title>clusterKeypressTriad</title>
-<polygon fill="none" stroke="black" points="494,-82 494,-210 900,-210 900,-82 494,-82"/>
+<polygon fill="none" stroke="black" points="8,-82 8,-210 414,-210 414,-82 8,-82"/>
 </g>
 <g id="graph12" class="cluster"><title>clusterTuneTriad</title>
-<polygon fill="none" stroke="black" points="8,-82 8,-210 336,-210 336,-82 8,-82"/>
+<polygon fill="none" stroke="black" points="572,-82 572,-210 900,-210 900,-82 572,-82"/>
 </g>
 <g id="graph14" class="cluster"><title>clusterNodeDuad</title>
-<polygon fill="none" stroke="black" points="344,-8 344,-136 486,-136 486,-8 344,-8"/>
+<polygon fill="none" stroke="black" points="422,-8 422,-136 564,-136 564,-8 422,-8"/>
 </g>
 <!-- AppView -->
 <g id="node3" class="node"><title>AppView</title>
-<ellipse fill="none" stroke="red" cx="288" cy="-331" rx="53.9477" ry="18.3848"/>
-<text text-anchor="middle" x="288" y="-327.4" font-family="Times Roman,serif" font-size="14.00">AppView</text>
+<ellipse fill="none" stroke="red" cx="143" cy="-331" rx="53.9477" ry="18.3848"/>
+<text text-anchor="middle" x="143" y="-327.4" font-family="Times Roman,serif" font-size="14.00">AppView</text>
 </g>
 <!-- StaveView -->
 <g id="node4" class="node"><title>StaveView</title>
-<ellipse fill="none" stroke="red" cx="437" cy="-257" rx="63.8479" ry="18.3848"/>
-<text text-anchor="middle" x="437" y="-253.4" font-family="Times Roman,serif" font-size="14.00">StaveView</text>
+<ellipse fill="none" stroke="red" cx="297" cy="-257" rx="63.8479" ry="18.3848"/>
+<text text-anchor="middle" x="297" y="-253.4" font-family="Times Roman,serif" font-size="14.00">StaveView</text>
 </g>
 <!-- AppView&#45;&gt;StaveView -->
 <g id="edge31" class="edge"><title>AppView&#45;&gt;StaveView</title>
-<path fill="none" stroke="black" d="M318.873,-315.667C341.095,-304.631 371.312,-289.624 395.622,-277.55"/>
-<polygon fill="black" stroke="black" points="397.221,-280.664 404.62,-273.081 394.107,-274.395 397.221,-280.664"/>
+<path fill="none" stroke="black" d="M174.536,-315.846C197.734,-304.699 229.51,-289.43 254.881,-277.239"/>
+<polygon fill="black" stroke="black" points="256.412,-280.386 263.91,-272.9 253.381,-274.077 256.412,-280.386"/>
 </g>
 <!-- AppController -->
 <g id="node10" class="node"><title>AppController</title>
-<ellipse fill="none" stroke="green" cx="276" cy="-257" rx="79.196" ry="18.3848"/>
-<text text-anchor="middle" x="276" y="-253.4" font-family="Times Roman,serif" font-size="14.00">AppController</text>
+<ellipse fill="none" stroke="green" cx="131" cy="-257" rx="79.196" ry="18.3848"/>
+<text text-anchor="middle" x="131" y="-253.4" font-family="Times Roman,serif" font-size="14.00">AppController</text>
 </g>
 <!-- AppView&#45;&gt;AppController -->
 <g id="edge10" class="edge"><title>AppView&#45;&gt;AppController</title>
-<path fill="none" stroke="black" d="M284.972,-312.327C283.664,-304.264 282.105,-294.648 280.656,-285.711"/>
-<polygon fill="black" stroke="black" points="284.083,-284.978 279.027,-275.667 277.173,-286.099 284.083,-284.978"/>
+<path fill="none" stroke="black" d="M139.972,-312.327C138.664,-304.264 137.105,-294.648 135.656,-285.711"/>
+<polygon fill="black" stroke="black" points="139.083,-284.978 134.027,-275.667 132.173,-286.099 139.083,-284.978"/>
 </g>
 <!-- TuneView -->
 <g id="node5" class="node"><title>TuneView</title>
-<ellipse fill="none" stroke="red" cx="267" cy="-183" rx="58.8978" ry="18.3848"/>
-<text text-anchor="middle" x="267" y="-179.4" font-family="Times Roman,serif" font-size="14.00">TuneView</text>
+<ellipse fill="none" stroke="red" cx="651" cy="-183" rx="58.8978" ry="18.3848"/>
+<text text-anchor="middle" x="651" y="-179.4" font-family="Times Roman,serif" font-size="14.00">TuneView</text>
 </g>
 <!-- StaveView&#45;&gt;TuneView -->
 <g id="edge33" class="edge"><title>StaveView&#45;&gt;TuneView</title>
-<path fill="none" stroke="black" d="M401.362,-241.487C375.033,-230.026 339.033,-214.355 310.923,-202.12"/>
-<polygon fill="black" stroke="black" points="312.284,-198.895 301.718,-198.113 309.49,-205.313 312.284,-198.895"/>
+<path fill="none" stroke="black" d="M349.234,-246.081C413.902,-232.563 523.777,-209.595 591.594,-195.418"/>
+<polygon fill="black" stroke="black" points="592.621,-198.779 601.693,-193.307 591.189,-191.927 592.621,-198.779"/>
 </g>
 <!-- KeypressView -->
 <g id="node6" class="node"><title>KeypressView</title>
-<ellipse fill="none" stroke="red" cx="605" cy="-183" rx="79.196" ry="18.3848"/>
-<text text-anchor="middle" x="605" y="-179.4" font-family="Times Roman,serif" font-size="14.00">KeypressView</text>
+<ellipse fill="none" stroke="red" cx="297" cy="-183" rx="79.196" ry="18.3848"/>
+<text text-anchor="middle" x="297" y="-179.4" font-family="Times Roman,serif" font-size="14.00">KeypressView</text>
 </g>
 <!-- StaveView&#45;&gt;KeypressView -->
 <g id="edge35" class="edge"><title>StaveView&#45;&gt;KeypressView</title>
-<path fill="none" stroke="black" d="M472.218,-241.487C497.264,-230.455 531.165,-215.523 558.443,-203.507"/>
-<polygon fill="black" stroke="black" points="560.049,-206.624 567.789,-199.39 557.227,-200.218 560.049,-206.624"/>
+<path fill="none" stroke="black" d="M297,-238.327C297,-230.264 297,-220.648 297,-211.711"/>
+<polygon fill="black" stroke="black" points="300.5,-211.667 297,-201.667 293.5,-211.667 300.5,-211.667"/>
 </g>
 <!-- NoteView -->
 <g id="node7" class="node"><title>NoteView</title>
-<ellipse fill="none" stroke="red" cx="413" cy="-109" rx="58.8978" ry="18.3848"/>
-<text text-anchor="middle" x="413" y="-105.4" font-family="Times Roman,serif" font-size="14.00">NoteView</text>
+<ellipse fill="none" stroke="red" cx="495" cy="-109" rx="58.8978" ry="18.3848"/>
+<text text-anchor="middle" x="495" y="-105.4" font-family="Times Roman,serif" font-size="14.00">NoteView</text>
 </g>
 <!-- TuneView&#45;&gt;NoteView -->
 <g id="edge39" class="edge"><title>TuneView&#45;&gt;NoteView</title>
-<path fill="none" stroke="black" d="M298.321,-167.125C320.068,-156.103 349.236,-141.319 372.713,-129.419"/>
-<polygon fill="black" stroke="black" points="374.394,-132.491 381.731,-124.849 371.229,-126.248 374.394,-132.491"/>
+<path fill="none" stroke="black" d="M618.297,-167.487C594.585,-156.239 562.325,-140.936 536.751,-128.805"/>
+<polygon fill="black" stroke="black" points="538.195,-125.616 527.66,-124.492 535.195,-131.941 538.195,-125.616"/>
 </g>
 <!-- TuneController -->
 <g id="node12" class="node"><title>TuneController</title>
-<ellipse fill="none" stroke="green" cx="100" cy="-109" rx="84.1457" ry="18.3848"/>
-<text text-anchor="middle" x="100" y="-105.4" font-family="Times Roman,serif" font-size="14.00">TuneController</text>
+<ellipse fill="none" stroke="green" cx="664" cy="-109" rx="84.1457" ry="18.3848"/>
+<text text-anchor="middle" x="664" y="-105.4" font-family="Times Roman,serif" font-size="14.00">TuneController</text>
 </g>
 <!-- TuneView&#45;&gt;TuneController -->
 <g id="edge22" class="edge"><title>TuneView&#45;&gt;TuneController</title>
-<path fill="none" stroke="black" d="M232.802,-167.846C208.047,-156.877 174.285,-141.917 146.999,-129.826"/>
-<polygon fill="black" stroke="black" points="148.203,-126.531 137.642,-125.68 145.367,-132.931 148.203,-126.531"/>
+<path fill="none" stroke="black" d="M654.28,-164.327C655.697,-156.264 657.386,-146.648 658.956,-137.711"/>
+<polygon fill="black" stroke="black" points="662.437,-138.122 660.721,-127.667 655.543,-136.911 662.437,-138.122"/>
 </g>
 <!-- TuneModel -->
 <g id="node17" class="node"><title>TuneModel</title>
-<ellipse fill="none" stroke="blue" cx="265" cy="-109" rx="63.1385" ry="18.3848"/>
-<text text-anchor="middle" x="265" y="-105.4" font-family="Times Roman,serif" font-size="14.00">TuneModel</text>
+<ellipse fill="none" stroke="blue" cx="829" cy="-109" rx="63.1385" ry="18.3848"/>
+<text text-anchor="middle" x="829" y="-105.4" font-family="Times Roman,serif" font-size="14.00">TuneModel</text>
 </g>
 <!-- TuneView&#45;&gt;TuneModel -->
 <g id="edge20" class="edge"><title>TuneView&#45;&gt;TuneModel</title>
-<path fill="none" stroke="black" d="M266.495,-164.327C266.277,-156.264 266.018,-146.648 265.776,-137.711"/>
-<polygon fill="black" stroke="black" points="269.274,-137.569 265.505,-127.667 262.276,-137.758 269.274,-137.569"/>
+<path fill="none" stroke="black" d="M686.593,-168.203C714.332,-156.671 753.054,-140.573 783.12,-128.074"/>
+<polygon fill="black" stroke="black" points="784.662,-131.223 792.552,-124.153 781.975,-124.76 784.662,-131.223"/>
 </g>
 <!-- KeypressController -->
 <g id="node11" class="node"><title>KeypressController</title>
-<ellipse fill="none" stroke="green" cx="605" cy="-109" rx="103.238" ry="18.3848"/>
-<text text-anchor="middle" x="605" y="-105.4" font-family="Times Roman,serif" font-size="14.00">KeypressController</text>
+<ellipse fill="none" stroke="green" cx="303" cy="-109" rx="103.238" ry="18.3848"/>
+<text text-anchor="middle" x="303" y="-105.4" font-family="Times Roman,serif" font-size="14.00">KeypressController</text>
 </g>
 <!-- KeypressView&#45;&gt;KeypressController -->
 <g id="edge16" class="edge"><title>KeypressView&#45;&gt;KeypressController</title>
-<path fill="none" stroke="black" d="M605,-164.327C605,-156.264 605,-146.648 605,-137.711"/>
-<polygon fill="black" stroke="black" points="608.5,-137.667 605,-127.667 601.5,-137.667 608.5,-137.667"/>
+<path fill="none" stroke="black" d="M298.514,-164.327C299.168,-156.264 299.947,-146.648 300.672,-137.711"/>
+<polygon fill="black" stroke="black" points="304.167,-137.918 301.486,-127.667 297.19,-137.352 304.167,-137.918"/>
 </g>
 <!-- KeypressModel -->
 <g id="node16" class="node"><title>KeypressModel</title>
-<ellipse fill="none" stroke="blue" cx="809" cy="-109" rx="82.939" ry="18.3848"/>
-<text text-anchor="middle" x="809" y="-105.4" font-family="Times Roman,serif" font-size="14.00">KeypressModel</text>
+<ellipse fill="none" stroke="blue" cx="99" cy="-109" rx="82.939" ry="18.3848"/>
+<text text-anchor="middle" x="99" y="-105.4" font-family="Times Roman,serif" font-size="14.00">KeypressModel</text>
 </g>
 <!-- KeypressView&#45;&gt;KeypressModel -->
 <g id="edge14" class="edge"><title>KeypressView&#45;&gt;KeypressModel</title>
-<path fill="none" stroke="black" d="M648.263,-167.307C679.666,-155.915 722.336,-140.437 755.82,-128.291"/>
-<polygon fill="black" stroke="black" points="757.241,-131.499 765.448,-124.798 754.854,-124.918 757.241,-131.499"/>
+<path fill="none" stroke="black" d="M255.009,-167.307C224.764,-156.003 183.75,-140.674 151.365,-128.571"/>
+<polygon fill="black" stroke="black" points="152.205,-125.148 141.613,-124.926 149.755,-131.705 152.205,-125.148"/>
 </g>
 <!-- NoteModel -->
 <g id="node15" class="node"><title>NoteModel</title>
-<ellipse fill="none" stroke="blue" cx="415" cy="-35" rx="63.1385" ry="18.3848"/>
-<text text-anchor="middle" x="415" y="-31.4" font-family="Times Roman,serif" font-size="14.00">NoteModel</text>
+<ellipse fill="none" stroke="blue" cx="493" cy="-35" rx="63.1385" ry="18.3848"/>
+<text text-anchor="middle" x="493" y="-31.4" font-family="Times Roman,serif" font-size="14.00">NoteModel</text>
 </g>
 <!-- NoteView&#45;&gt;NoteModel -->
 <g id="edge26" class="edge"><title>NoteView&#45;&gt;NoteModel</title>
-<path fill="none" stroke="black" d="M413.505,-90.3267C413.723,-82.2639 413.982,-72.6477 414.224,-63.7115"/>
-<polygon fill="black" stroke="black" points="417.724,-63.7583 414.495,-53.6674 410.726,-63.5691 417.724,-63.7583"/>
+<path fill="none" stroke="black" d="M494.495,-90.3267C494.277,-82.2639 494.018,-72.6477 493.776,-63.7115"/>
+<polygon fill="black" stroke="black" points="497.274,-63.5691 493.505,-53.6674 490.276,-63.7583 497.274,-63.5691"/>
+</g>
+<!-- KeypressModel&#45;&gt;AppController -->
+<g id="edge43" class="edge"><title>KeypressModel&#45;&gt;AppController</title>
+<path fill="none" stroke="purple" d="M103.02,-127.592C108.509,-152.977 118.399,-198.718 124.83,-228.462"/>
+<polygon fill="purple" stroke="purple" points="121.413,-229.221 126.947,-238.256 128.255,-227.742 121.413,-229.221"/>
 </g>
 <!-- TuneModel&#45;&gt;NoteModel -->
 <g id="edge37" class="edge"><title>TuneModel&#45;&gt;NoteModel</title>
-<path fill="none" stroke="black" d="M297.548,-92.9431C319.835,-81.9479 349.581,-67.2734 373.56,-55.4436"/>
-<polygon fill="black" stroke="black" points="375.354,-58.4614 382.774,-50.8983 372.257,-52.1838 375.354,-58.4614"/>
+<path fill="none" stroke="black" d="M792.427,-93.8111C781.201,-89.5506 768.717,-85.2108 757,-82 691.515,-64.0543 614.956,-51.3012 561.197,-43.649"/>
+<polygon fill="black" stroke="black" points="561.485,-40.1552 551.096,-42.233 560.513,-47.0875 561.485,-40.1552"/>
 </g>
 <!-- ScoreHero -->
 <g id="node33" class="node"><title>ScoreHero</title>
-<ellipse fill="none" stroke="black" cx="288" cy="-405" rx="62.2254" ry="18.3848"/>
-<text text-anchor="middle" x="288" y="-401.4" font-family="Times Roman,serif" font-size="14.00">ScoreHero</text>
+<ellipse fill="none" stroke="black" cx="143" cy="-405" rx="62.2254" ry="18.3848"/>
+<text text-anchor="middle" x="143" y="-401.4" font-family="Times Roman,serif" font-size="14.00">ScoreHero</text>
 </g>
 <!-- ScoreHero&#45;&gt;AppView -->
 <g id="edge29" class="edge"><title>ScoreHero&#45;&gt;AppView</title>
-<path fill="none" stroke="black" d="M288,-386.327C288,-378.264 288,-368.648 288,-359.711"/>
-<polygon fill="black" stroke="black" points="291.5,-359.667 288,-349.667 284.5,-359.667 291.5,-359.667"/>
+<path fill="none" stroke="black" d="M143,-386.327C143,-378.264 143,-368.648 143,-359.711"/>
+<polygon fill="black" stroke="black" points="146.5,-359.667 143,-349.667 139.5,-359.667 146.5,-359.667"/>
 </g>
 </g>
 </svg>

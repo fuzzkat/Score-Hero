@@ -1,0 +1,11 @@
+Next steps
+
+* Identify if keypress matches nearest note to play head.
+* Common timing for keypress measurement and tune position
+    - Base timing on MIDI sync?
+* Change tune to be more than just an array of equal length notes
+    - Store tune as MIDI?
+    - Could then easily write tunes for ScoreHero using MIDI sequencer
+* Represent accuracy of keypress in a view
+* Forward midi notes to midi output device to provide additional user feedback
+

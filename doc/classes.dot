@@ -40,4 +40,10 @@ digraph scorehero {
 	TuneModel -> NoteModel;
 	TuneView -> NoteView;
 
+// events
+	subgraph events {
+		edge [color=purple]
+		{KeypressModel -> AppController; }
+	}
+
 }
