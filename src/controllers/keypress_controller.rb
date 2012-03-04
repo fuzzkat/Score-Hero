@@ -13,9 +13,9 @@ class KeypressController < Controller
 
   def open
     super
-    processMidiEvents()
+    processMidiEvents
   end
-
+  
   private
 
   def processMidiEvents
@@ -41,24 +41,13 @@ class KeypressController < Controller
 
   def processKeyToggle
     if note_pressed?
-      addToCurrentChord @event_note
+      @model.press @event_note
     else
-      removeFromCurrentChord @event_note
+      @model.release @event_note
     end
   end
 
   def note_pressed?
     @event_velocity >= NOTE_PRESS_MIN_VELOCITY
   end
-
-  def addToCurrentChord note
-    @model.press note
-    @@log.info{"note #{note} on"}
-  end
-
-  def removeFromCurrentChord note
-    @model.release note
-    @@log.info{"note #{note} off"}
-  end
-
 end

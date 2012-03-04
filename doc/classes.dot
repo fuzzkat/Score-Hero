@@ -12,44 +12,32 @@ digraph scorehero {
 
 	subgraph models {
 		node [color=blue]
-		{ NoteModel; KeypressModel; TuneModel; RandomTuneModel; }
+		{ NoteModel; KeypressModel; TuneModel; }
 	}
 
 	subgraph clusterAppTriad {	
-		{ AppView; AppController }
+		{ AppView -> AppController }
 	}
 	
 	subgraph clusterKeypressTriad {	
-		{ KeypressView; KeypressModel; KeypressController }
+		{ KeypressView -> KeypressModel; KeypressView -> KeypressController }
 	}
 	
 	subgraph clusterTuneTriad {	
-		{ TuneView; TuneModel; TuneController }
+		{ TuneView -> TuneModel; TuneView -> TuneController }
 	}
 
 	subgraph clusterNodeDuad {
-		{ NoteModel; NoteView }
+		{ NoteView -> NoteModel; }
 	}
 
 	{ rank=source; ScoreHero; }
 
-	ScoreHero -> AppController;
 	ScoreHero -> AppView;
 	AppView -> StaveView;
-	AppView -> TuneView;
+	StaveView -> TuneView;
 	StaveView -> KeypressView;
-	TuneModel -> RandomTuneModel -> NoteModel;
+	TuneModel -> NoteModel;
 	TuneView -> NoteView;
-
-//MVC Triads
-	KeypressView -> KeypressModel;
-	KeypressView -> KeypressController;
-
-	TuneView -> TuneModel;
-	TuneView -> TuneController;
-
-	NoteView ->  Note;
-
-	AppView -> AppController;
 
 }
