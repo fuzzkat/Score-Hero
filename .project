@@ -14,4 +14,15 @@
 	<natures>
 		<nature>org.eclipse.dltk.ruby.core.nature</nature>
 	</natures>
+	<filteredResources>
+		<filter>
+			<id>1330850276469</id>
+			<name></name>
+			<type>26</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-coverage</arguments>
+			</matcher>
+		</filter>
+	</filteredResources>
 </projectDescription>

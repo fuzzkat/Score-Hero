@@ -1,2 +1,4 @@
 /coverage
-/coverage/**/*
+/coverage/**/
+*.swp
+/README
